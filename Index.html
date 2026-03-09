@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Instagram Chat</title>
+
+<style>
+
+body{
+margin:0;
+background:#000;
+font-family:Arial;
+color:white;
+}
+
+.chat{
+max-width:650px;
+margin:auto;
+padding:20px;
+display:flex;
+flex-direction:column;
+}
+
+.msg{
+max-width:70%;
+padding:10px 14px;
+border-radius:18px;
+margin:4px 0;
+font-size:14px;
+}
+
+.me{
+align-self:flex-end;
+background:#ff2da4;
+}
+
+.them{
+align-self:flex-start;
+background:#262626;
+}
+
+.time{
+font-size:10px;
+opacity:.7;
+margin-top:4px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="chat" class="chat"></div>
+
+<script>
+
+const myName = "Aditya"; // put your username here
+
+/* PASTE YOUR JSON HERE */
+
+"messages": [
+
+{
+
+},
+
+{
+
+},
+
+{
+
+},
+
+{
+
+"sender_name": "Chikki?",
+
+"content": "okay",
+
+},
+
+{
+
+"timestamp_ms": 1773048605900, "is_geoblocked_for_viewer": false,
+
+"is_unsent_image_by_messenger_kid_parent": false
+
+"sender_name": "Chikki?",
+
+"timestamp_ms": 1773048603223,
+
+"content": "that'd be better",
+
+"is_geoblocked_for_viewer": false, "is_unsent_image_by_messenger_kid_parent": false
+
+"sender_name": "Aditya", "timestamp_ms": 1773048594559, "is_geoblocked_for_viewer": false,
+
+"content": "*else",
+
+"is_unsent_image_by_messenger_kid_parent": false
+
+"sender_name": "Aditya", "timestamp_ms": 1773048592293, "content": "I can't say anything els", "is_geoblocked_for_viewer": false, "is_unsent_image_by_messenger_kid_parent": false
+
+"sender_name": "Aditya",
+
+"timestamp_ms": 1773048587895,
+
+"content": "Just meet me today", "is_geoblocked_for_viewer": false,
+
+"is_unsent_image_by_messenger_kid_parent": false
+
+},
+
+{
+
+"sender_name": "Chikki?",
+
+"timestamp_ms": 1773048578144,
+
+"content":
+
+"is_geoblocked_for_viewer": false,
+
+"is_unsent_image_by_messenger_kid_parent": false
+
+},
+
+{
+
+},
+
+{
+
+},
+
+{
+
+"sender_name": "Chikki?",
+
+"timestamp_ms": 1773048575462,
+
+"content": "thats wht i said its fine",
+
+"is_geoblocked_for_viewer": false,
+
+"is_unsent_image_by_messenger_kid_parent": false
+
+"sender_name": "Aditya",
+
+"timestamp_ms": 1773048500958,
+
+"content": "Angry",
+
+"is_geoblocked_for_viewer": false,
+
+"is_unsent_image_by_messenger_kid_parent": false
+
+/* CHAT RENDERER */
+
+const chat=document.getElementById("chat");
+
+data.messages
+.sort((a,b)=>a.timestamp_ms-b.timestamp_ms)
+.forEach(msg=>{
+
+if(!msg.content) return;
+
+let div=document.createElement("div");
+
+if(msg.sender_name===myName){
+div.className="msg me";
+}else{
+div.className="msg them";
+}
+
+let time=new Date(msg.timestamp_ms)
+.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+
+div.innerHTML=msg.content+"<div class='time'>"+time+"</div>";
+
+chat.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>
